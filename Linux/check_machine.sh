@@ -1,27 +1,32 @@
 #!/usr/bin/env bash
 
-echo ""
-echo "--- Version de l'OS"
+echo "# Configuration "
+
+echo "## Name "
+uname -a
+
+
+echo "## Version de l'OS"
 lsb_release -a
 
 OSCODENAME=$(lsb_release -c -s)
 
 
 echo ""
-echo "--- Nombre de processeurs"
+echo "## Nombre de processeurs"
 
 cat /proc/cpuinfo | grep "model name"
 
 echo ""
-echo "--- Mémoire libre"
+echo "## Mémoire libre"
 free -h
 
 echo ""
-echo "--- Occupation disques"
+echo "## Occupation disques"
 df -h
 
 echo ""
-echo "---- réseau"
+echo "## réseau"
 
 command -v ifconfig
 if [ $? -ne 1 ]; then
